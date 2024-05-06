@@ -1,0 +1,95 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(52, 52, 52);
+}
+
+h1 {
+    background-color: lightgreen;
+    color: black;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+header {
+    background-color: black;
+    margin: 0;
+    padding: 20px 50px 20px 50px;
+}
+
+nav {
+    background-color: black;
+}
+
+nav a {
+    color: lightgreen;
+    margin-right: 50px;
+    font-size: 2em;
+    text-decoration: none;
+    background-color: black;
+}
+
+p,
+a {
+    color: white;
+}
+
+form {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: lightgreen;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+}
+
+form h2 {
+    text-align: center;
+    background-color: lightgreen;
+}
+
+form label {
+    background-color: lightgreen;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 96%;
+    padding: 8px 2% 8px 2%;
+    margin: 5px 0 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+}
+
+button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    background-color: black;
+    color: lightgreen;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(52, 156, 247);
+}
+
+p {
+    text-align: center;
+}
+
+#login-forms {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form {
+    Flex-grow: 1;
+    Flex-shrink: 1;
+    Flex-basis: 50%;
+}

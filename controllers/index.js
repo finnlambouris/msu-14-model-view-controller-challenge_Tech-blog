@@ -1,18 +1,40 @@
 const router = require('express').Router();
 const User = require('../models/User');
+const Blogpost = require('../models/Blogpost');
 const bcrypt = require('bcrypt');
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
+  const blogposts = await Blogpost.findAll();
+  const blog = blogposts.map((post) => post.get({ plain: true }));
+  
   res.render("homepage", {
+    logged_in: req.session.logged_in,
+    blog: blog
+  });
+});
+
+router.get("/dashboard", (req, res) => {
+  res.render("dashboard", {
     logged_in: req.session.logged_in
   });
 });
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    return res.redirect('/dashboard');
+    return res.render("homepage");
   } else {
     return res.render("login");
+  }
+});
+
+router.get("/logout", (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.redirect('/');
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
@@ -60,10 +82,6 @@ router.post("/api/users", async (req, res) => {
 router.get("/api/users", async (req, res) => {
   const userData = await User.findAll();
   res.json(userData);
-});
-
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
 });
 
 module.exports = router;

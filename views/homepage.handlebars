@@ -1,6 +1,7 @@
-{{#if logged_in}}
-<p>Test</p>
-
-{{else}}
-<p>Please <a href="/login">login</a> to view your dashboard.</p>
-{{/if}}
+{{#each blog as |post|}}
+<div class="blogpost">
+    <h2>{{title}}</h2>
+    <h3>Posted by {{username}} on {{createdAt}}</h3>
+    <p>{{post_preview body}}</p>
+</div>
+{{/each}}

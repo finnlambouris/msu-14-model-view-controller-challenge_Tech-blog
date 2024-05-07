@@ -16,7 +16,7 @@ async function signup(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert('Account creation failed. Please try again.');
     }

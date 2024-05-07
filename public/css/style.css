@@ -93,3 +93,39 @@ p {
     Flex-shrink: 1;
     Flex-basis: 50%;
 }
+
+.blogpost,
+.blogpost * {
+    background-color: white;
+}
+
+.blogpost {
+    width: 80%;
+    margin: 40px auto;
+    border: 5px solid black;
+    box-shadow: 10px 10px lightgreen;
+    padding-bottom: 20px;
+}
+
+.blogpost h2 {
+    color: lightgreen;
+    background-color: black;
+    text-align: center;
+    padding: 5px 0px 15px 0px;
+    margin: 0;
+}
+
+.blogpost h3 {
+    text-align: center;
+    margin: 10px 0px 0px 10px;
+    padding: 0px 40px 0px 40px;
+
+}
+
+.blogpost p {
+    text-align: left;
+    color: black;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+

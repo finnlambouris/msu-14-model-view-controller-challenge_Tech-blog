@@ -13,14 +13,18 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/blogpost/:id', async (req, res) => {
   const blogData = await Blogpost.findByPk(req.params.id);
   const blogpost = blogData.get({ plain: true });
 
-  res.render("blogpost", {
-    logged_in: req.session.logged_in,
-    blogpost: blogpost
-  });
+  if (req.session.logged_in) {
+    return res.render("blogpost", {
+      logged_in: req.session.logged_in,
+      blogpost: blogpost
+    });
+  } else {
+    return res.render("login");
+  }
 });
 
 router.get("/dashboard", (req, res) => {

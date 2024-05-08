@@ -1,10 +1,11 @@
 const router = require('express').Router();
-const User = require('../models/User');
-const Blogpost = require('../models/Blogpost');
+const { Blogpost, Comment, User } = require('../models/index.js');
 const bcrypt = require('bcrypt');
 
 router.get("/", async (req, res) => {
-  const blogposts = await Blogpost.findAll();
+  const blogposts = await Blogpost.findAll({
+    include: [{ model: User }],
+  });
   const blog = blogposts.map((post) => post.get({ plain: true }));
   
   res.render("homepage", {
@@ -14,7 +15,9 @@ router.get("/", async (req, res) => {
 });
 
 router.get('/blogpost/:id', async (req, res) => {
-  const blogData = await Blogpost.findByPk(req.params.id);
+  const blogData = await Blogpost.findByPk(req.params.id, {
+    include: [{model: User}, {model: Comment, include: {model: User}}]
+  });
   const blogpost = blogData.get({ plain: true });
 
   if (req.session.logged_in) {
@@ -54,7 +57,7 @@ router.get("/logout", (req, res) => {
 
 router.post('/api/users/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findOne({ where: { username: req.body.username } });
     if (!userData) {
       return res.status(400).json(userData);
     }
@@ -78,7 +81,7 @@ router.post('/api/users/login', async (req, res) => {
 router.post("/api/users", async (req, res) => {
   try {
     const userData = await User.create({
-      email: req.body.email,
+      username: req.body.username,
       password: req.body.password,
     });
 

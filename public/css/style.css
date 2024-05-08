@@ -95,7 +95,9 @@ p {
 }
 
 .blogpost,
-.blogpost * {
+.blogpost *,
+.comment,
+.comment * {
     background-color: white;
 }
 
@@ -114,7 +116,8 @@ p {
     margin: 0;
 }
 
-.blogpost h3 {
+.blogpost h3,
+.comment h3 {
     color: black;
     text-align: center;
     margin: 10px 0px 0px 10px;
@@ -122,7 +125,8 @@ p {
 
 }
 
-.blogpost p {
+.blogpost p,
+.comment p {
     text-align: left;
     color: black;
     padding-left: 40px;
@@ -132,4 +136,22 @@ p {
 
 .blog-links {
     text-decoration: none;
+}
+
+.comments h2 {
+    width: 80%;
+    margin: 0 auto;
+    background-color: lightgreen;
+    color: black;
+    padding: 20px 0px 20px 0px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.comment {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 5px solid black;
+    box-shadow: 10px 10px lightgreen;
 }

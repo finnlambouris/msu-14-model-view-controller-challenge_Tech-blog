@@ -104,7 +104,6 @@ p {
     margin: 40px auto;
     border: 5px solid black;
     box-shadow: 10px 10px lightgreen;
-    padding-bottom: 20px;
 }
 
 .blogpost h2 {
@@ -116,6 +115,7 @@ p {
 }
 
 .blogpost h3 {
+    color: black;
     text-align: center;
     margin: 10px 0px 0px 10px;
     padding: 0px 40px 0px 40px;
@@ -127,5 +127,9 @@ p {
     color: black;
     padding-left: 40px;
     padding-right: 30px;
+    text-decoration: none;
 }
 
+.blog-links {
+    text-decoration: none;
+}

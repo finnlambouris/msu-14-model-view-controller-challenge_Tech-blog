@@ -13,6 +13,16 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get('/:id', async (req, res) => {
+  const blogData = await Blogpost.findByPk(req.params.id);
+  const blogpost = blogData.get({ plain: true });
+
+  res.render("blogpost", {
+    logged_in: req.session.logged_in,
+    blogpost: blogpost
+  });
+});
+
 router.get("/dashboard", (req, res) => {
   res.render("dashboard", {
     logged_in: req.session.logged_in

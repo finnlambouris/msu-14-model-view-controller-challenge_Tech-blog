@@ -8,7 +8,7 @@
 
 {{#if (equals user_id blogpost.user.id)}}
 <div class="button-container">
-    <button id="update-post">Update Post</button>
+    <a href="/blogpost/{{blogpost.id}}/update"><button id="update-post">Update Post</button></a>
     <button id="delete-post">Delete Post</button>
 </div>
 

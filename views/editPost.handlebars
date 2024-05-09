@@ -1,0 +1,11 @@
+<div class="hidden" id="post-id">{{blogpost.id}}</div>
+
+<form class="form" id="blogpost-form">
+    <label for="title">Title:</label>
+    <input type="text" id="blogpost-title" name="title" value="{{blogpost.title}}" required>
+    <label for="body">Blogpost:</label>
+    <input type="text" id="blogpost-body" name="body" value="{{blogpost.body}}" required>
+    <button type="submit">Update post</button>
+</form>
+
+<script src="/js/updatePost.js"></script>

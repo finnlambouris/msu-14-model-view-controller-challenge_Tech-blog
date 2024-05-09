@@ -40,4 +40,27 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.get('/:id/update', async (req, res) => {
+  const blogData = await Blogpost.findByPk(req.params.id, {
+    include: [{model: User}, {model: Comment, include: {model: User}}]
+  });
+  const blogpost = blogData.get({ plain: true });
+  
+  res.render("editPost", {
+    blogpost: blogpost,
+  });
+});
+
+router.put('/:id/update', async (req, res) => {
+  const blogData = await Blogpost.update({
+    title: req.body.title,
+    body: req.body.body,
+  },
+  {
+    where: { id: req.params.id }
+  },
+);
+  return res.status(200).json(blogData);
+});
+
 module.exports = router;

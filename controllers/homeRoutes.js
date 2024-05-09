@@ -104,7 +104,6 @@ router.post("/dashboard", async (req, res) => {
 });
 
 router.get("/dashboard/post", (req, res) => {  
-  console.log("hi");
   return res.render("createPost");
 });
 

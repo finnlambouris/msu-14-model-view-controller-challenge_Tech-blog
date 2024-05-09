@@ -1,5 +1,7 @@
+<div class="hidden" id="post-id">{{blogpost.id}}</div>
+
 <div class="blogpost">
-    <h2>{{blogpost.title}}</h2>
+    <h2 id="selectedBlogpost">{{blogpost.title}}</h2>
     <h3>Posted by {{blogpost.user.username}} on {{blogpost.createdAt}}</h3>
     <p>{{blogpost.body}}</p>
 </div>
@@ -15,3 +17,11 @@
     </div>
 </div>
 {{/if}}
+
+<form class="form" id="comment-form">
+    <label for="comment">Comment:</label>
+    <input type="text" id="comment" name="comment" required>
+    <button type="submit">Post Comment</button>
+</form>
+
+<script src="/js/comment.js"></script>

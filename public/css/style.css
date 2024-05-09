@@ -43,6 +43,10 @@ form {
     box-shadow: 0 0 10px black;
 }
 
+#comment-form {
+    max-width: 78%;
+}
+
 form h2 {
     text-align: center;
     background-color: lightgreen;
@@ -154,4 +158,8 @@ p {
     margin-top: 20px;
     border: 5px solid black;
     box-shadow: 10px 10px lightgreen;
+}
+
+.hidden {
+    display: none;
 }

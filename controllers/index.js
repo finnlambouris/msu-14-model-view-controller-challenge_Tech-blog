@@ -101,4 +101,30 @@ router.get("/api/users", async (req, res) => {
   res.json(userData);
 });
 
+router.get("/api/comments", async (req, res) => {
+  const commentData = await Comment.findAll();
+  res.json(commentData);
+});
+
+router.get("/api/blogposts", async (req, res) => {
+  const blogData = await Blogpost.findAll();
+  res.json(blogData);
+});
+
+router.post("/blogpost/:id", async (req, res) => {
+  console.log(req.body);
+  try {
+    const commentData = await Comment.create({
+      comment: req.body.comment,
+      user_id: req.session.user_id,
+      blogpost_id: req.params.id,
+    });
+
+    return res.status(200).json(commentData);
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;

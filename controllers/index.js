@@ -112,16 +112,26 @@ router.get("/api/blogposts", async (req, res) => {
 });
 
 router.post("/blogpost/:id", async (req, res) => {
-  console.log(req.body);
   try {
     const commentData = await Comment.create({
       comment: req.body.comment,
       user_id: req.session.user_id,
       blogpost_id: req.params.id,
     });
-
     return res.status(200).json(commentData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
+router.post("/", async (req, res) => {
+  try {
+    const blogpostData = await Blogpost.create({
+      title: req.body.title,
+      body: req.body.body,
+      user_id: req.session.user_id,
+    });
+    return res.status(200).json(blogpostData);
   } catch (err) {
     res.status(400).json(err);
   }

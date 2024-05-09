@@ -11,6 +11,21 @@ h1 {
     text-align: center;
 }
 
+#blogpost-h2 {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: rgb(52, 156, 247);
+    color: black;
+    padding: 20px 0px 20px 0px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#blogpost-form {
+    margin-top: 20px;
+}
+
 header {
     background-color: black;
     margin: 0;
@@ -43,7 +58,8 @@ form {
     box-shadow: 0 0 10px black;
 }
 
-#comment-form {
+#comment-form,
+#blogpost-form {
     max-width: 78%;
 }
 

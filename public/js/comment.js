@@ -16,7 +16,6 @@ async function comment(event) {
     });
 
     if (response.ok) {
-      alert("worked");
       document.location.reload();
     } else {
       alert('Posting comment failed. Please try again.');

@@ -26,19 +26,23 @@ router.get('/blogpost/:id', async (req, res) => {
       blogpost: blogpost
     });
   } else {
-    return res.render("login");
+    return res.redirect("/login");
   }
 });
 
 router.get("/dashboard", (req, res) => {
-  res.render("dashboard", {
-    logged_in: req.session.logged_in
-  });
+  if(req.session.logged_in) {
+    res.render("dashboard", {
+      logged_in: req.session.logged_in,
+    });
+  } else {
+    res.redirect('/login');
+  }
 });
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    return res.render("homepage");
+    res.redirect("/");
   } else {
     return res.render("login");
   }
@@ -124,7 +128,7 @@ router.post("/blogpost/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/dashboard", async (req, res) => {
   try {
     const blogpostData = await Blogpost.create({
       title: req.body.title,

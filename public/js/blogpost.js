@@ -5,7 +5,7 @@ async function post(event) {
   const body = document.querySelector('#blogpost-body').value;
   
   if (title && body) {
-    const response = await fetch(`/`, {
+    const response = await fetch(`/dashboard`, {
       method: 'POST',
       body: JSON.stringify({
         title: title,

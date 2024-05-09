@@ -8,3 +8,15 @@
 </form>
 
 <script src="/js/blogpost.js"></script>
+
+{{#if userBlog}}
+    {{#each userBlog as |post|}}
+    <div class="blogpost">
+        <a class="blog-links" href="/blogpost/{{id}}">
+            <h2>{{title}}</h2>
+            <h3>Posted by {{user.username}} on {{createdAt}}</h3>
+            <p>{{body}}</p>
+        </a>
+    </div>
+    {{/each}}
+{{/if}}

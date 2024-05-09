@@ -30,10 +30,16 @@ router.get('/blogpost/:id', async (req, res) => {
   }
 });
 
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", async (req, res) => {  
   if(req.session.logged_in) {
+    const userBlogposts = await Blogpost.findAll({ 
+      where: { user_id: req.session.user_id }, include: [{ model: User }], 
+    });
+    const userBlog = userBlogposts.map((post) => post.get({ plain: true }));
+
     res.render("dashboard", {
       logged_in: req.session.logged_in,
+      userBlog: userBlog,
     });
   } else {
     res.redirect('/login');

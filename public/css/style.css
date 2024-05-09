@@ -22,6 +22,25 @@ h1 {
     font-weight: bold;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#update-post,
+#delete-post {
+    width: 40%;
+    margin: 20px 20px 0px 20px;
+    background-color: rgb(52, 156, 247);
+    color: lightgreen;
+    padding: 20px 0px 20px 0px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
 #blogpost-form {
     margin-top: 20px;
 }

@@ -10,7 +10,8 @@ router.get('/:id', async (req, res) => {
   if (req.session.logged_in) {
     return res.render("blogpost", {
       logged_in: req.session.logged_in,
-      blogpost: blogpost
+      blogpost: blogpost,
+      user_id: req.session.user_id,
     });
   } else {
     return res.redirect("/login");
@@ -27,6 +28,15 @@ router.post("/:id", async (req, res) => {
     return res.status(200).json(commentData);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedPost = await Blogpost.destroy({ where: { id: req.params.id } });
+    return res.status(200).json(deletedPost);
+  } catch (err) {
+    return res.status(400).json(err);
   }
 });
 

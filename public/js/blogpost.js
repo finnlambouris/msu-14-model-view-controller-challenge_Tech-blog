@@ -17,7 +17,7 @@ async function post(event) {
     });
 
     if (response.ok) {
-      document.location.reload();
+      document.location.replace('/dashboard');
     } else {
       alert('Posting blogpost failed. Please try again.');
     }

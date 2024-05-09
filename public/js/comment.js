@@ -17,7 +17,7 @@ async function comment(event) {
 
     if (response.ok) {
       alert("worked");
-      // document.location.replace('/dashboard');
+      document.location.reload();
     } else {
       alert('Posting comment failed. Please try again.');
     }

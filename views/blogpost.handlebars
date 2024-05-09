@@ -9,12 +9,12 @@
 {{#if blogpost.comments}}
 <div class="comments">
     <h2>Comments</h2>
-    <div class="comment">
-        {{#each blogpost.comments as |comment|}}
+    {{#each blogpost.comments as |comment|}}
+        <div class="comment">
             <h3>Comment by {{comment.user.username}} on {{comment.createdAt}}</h3>
             <p>{{comment.comment}}</p>
-        {{/each}}
-    </div>
+        </div>
+    {{/each}}
 </div>
 {{/if}}
 

@@ -3,7 +3,7 @@
 
 <div class="blogpost">
     <h2 id="selectedBlogpost">{{blogpost.title}}</h2>
-    <h3>Posted by {{blogpost.user.username}} on {{blogpost.createdAt}}</h3>
+    <h3>Posted by {{blogpost.user.username}} on {{format_date blogpost.createdAt}}</h3>
     <p>{{blogpost.body}}</p>
 </div>
 
@@ -21,7 +21,7 @@
     <h2>Comments</h2>
     {{#each blogpost.comments as |comment|}}
         <div class="comment">
-            <h3>Comment by {{comment.user.username}} on {{comment.createdAt}}</h3>
+            <h3>Comment by {{comment.user.username}} on {{format_date comment.createdAt}}</h3>
             <p>{{comment.comment}}</p>
         </div>
     {{/each}}

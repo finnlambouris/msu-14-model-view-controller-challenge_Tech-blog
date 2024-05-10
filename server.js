@@ -19,18 +19,18 @@ app.set("view engine", "handlebars");
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 app.use(session({
-secret: process.env.SECRET,
-cookie: {
-    maxAge: 300000,
-    httpOnly: true,
-    secure: false,
-    sameSite: 'strict',
-},
-resave: false,
-saveUninitialized: true,
-store: new SequelizeStore({
-    db: sequelize
-})
+    secret: process.env.SECRET,
+        cookie: {
+            maxAge: 300000,
+            httpOnly: true,
+            secure: false,
+            sameSite: 'strict',
+        },
+        resave: false,
+        saveUninitialized: true,
+        store: new SequelizeStore({
+            db: sequelize
+        })
 }));
 
 const routes = require('./controllers/index.js');

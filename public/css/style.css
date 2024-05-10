@@ -25,12 +25,15 @@ h1 {
 .button-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+.button-container a {
+    width:100%;
 }
 
 #update-post,
 #delete-post {
-    width: 40%;
+    width: 90%;
     margin: 20px 20px 0px 20px;
     background-color: rgb(52, 156, 247);
     color: lightgreen;

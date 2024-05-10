@@ -10,7 +10,7 @@
 {{#if (equals user_id blogpost.user.id)}}
 <div class="button-container">
     <a href="/blogpost/{{blogpost.id}}/update"><button id="update-post">Update Post</button></a>
-    <button id="delete-post">Delete Post</button>
+    <a><button id="delete-post">Delete Post</button></a>
 </div>
 
 <script src="/js/deletePost.js"></script>

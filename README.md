@@ -7,7 +7,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
 ## Deployed Application
 [Deployed Application Photo](./public/img/deployed-app.png)
-[Deployed Application]()
+[Deployed Application](https://msu-tech-blog-03ab1ca90528.herokuapp.com/)
 
 ## Installation
 N/A
